@@ -1,0 +1,138 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"6 ../HAL/Bluetooth/../../MCAL/UART/UART_interface.h
+[; ;../HAL/Bluetooth/../../MCAL/UART/UART_interface.h: 6: void UART_Init(u32 baud_rate);
+[v _UART_Init `(v ~T0 @X0 0 ef1`ul ]
+"7
+[; ;../HAL/Bluetooth/../../MCAL/UART/UART_interface.h: 7: void UART_SendChar(u8 data);
+[v _UART_SendChar `(v ~T0 @X0 0 ef1`uc ]
+"8
+[; ;../HAL/Bluetooth/../../MCAL/UART/UART_interface.h: 8: void UART_SendString(const char *str);
+[v _UART_SendString `(v ~T0 @X0 0 ef1`*Cuc ]
+"9 ../HAL/Bluetooth/Bluetooth.c
+[; ;../HAL/Bluetooth/Bluetooth.c: 9: void BT_Init(void)
+[v _BT_Init `(v ~T0 @X0 1 ef ]
+"10
+[; ;../HAL/Bluetooth/Bluetooth.c: 10: {
+{
+[e :U _BT_Init ]
+[f ]
+"11
+[; ;../HAL/Bluetooth/Bluetooth.c: 11:     UART_Init(9600UL);
+[e ( _UART_Init (1 -> 9600 `ul ]
+"12
+[; ;../HAL/Bluetooth/Bluetooth.c: 12: }
+[e :UE 1 ]
+}
+"15
+[; ;../HAL/Bluetooth/Bluetooth.c: 15: static void BT_Send3Digit(u16 val)
+[v _BT_Send3Digit `(v ~T0 @X0 1 sf1`us ]
+"16
+[; ;../HAL/Bluetooth/Bluetooth.c: 16: {
+{
+[e :U _BT_Send3Digit ]
+"15
+[; ;../HAL/Bluetooth/Bluetooth.c: 15: static void BT_Send3Digit(u16 val)
+[v _val `us ~T0 @X0 1 r1 ]
+"16
+[; ;../HAL/Bluetooth/Bluetooth.c: 16: {
+[f ]
+"18
+[; ;../HAL/Bluetooth/Bluetooth.c: 18:     if (val > 999U) val = 999U;
+[e $ ! > -> _val `ui -> 999 `ui 3  ]
+[e = _val -> -> 999 `ui `us ]
+[e :U 3 ]
+"19
+[; ;../HAL/Bluetooth/Bluetooth.c: 19:     UART_SendChar((u8)('0' + (val / 100U)));
+[e ( _UART_SendChar (1 -> + -> 48 `ui / -> _val `ui -> 100 `ui `uc ]
+"20
+[; ;../HAL/Bluetooth/Bluetooth.c: 20:     UART_SendChar((u8)('0' + ((val / 10U) % 10U)));
+[e ( _UART_SendChar (1 -> + -> 48 `ui % / -> _val `ui -> 10 `ui -> 10 `ui `uc ]
+"21
+[; ;../HAL/Bluetooth/Bluetooth.c: 21:     UART_SendChar((u8)('0' + (val % 10U)));
+[e ( _UART_SendChar (1 -> + -> 48 `ui % -> _val `ui -> 10 `ui `uc ]
+"22
+[; ;../HAL/Bluetooth/Bluetooth.c: 22: }
+[e :UE 2 ]
+}
+"25
+[; ;../HAL/Bluetooth/Bluetooth.c: 25: void BT_SendLog(u8 door_closed,
+[v _BT_SendLog `(v ~T0 @X0 1 ef6`uc`uc`us`us`us`*Cuc ]
+"31
+[; ;../HAL/Bluetooth/Bluetooth.c: 31: {
+{
+[e :U _BT_SendLog ]
+"25
+[; ;../HAL/Bluetooth/Bluetooth.c: 25: void BT_SendLog(u8 door_closed,
+[v _door_closed `uc ~T0 @X0 1 r1 ]
+"26
+[; ;../HAL/Bluetooth/Bluetooth.c: 26:                 u8 belt_on,
+[v _belt_on `uc ~T0 @X0 1 r2 ]
+"27
+[; ;../HAL/Bluetooth/Bluetooth.c: 27:                 u16 dist_front,
+[v _dist_front `us ~T0 @X0 1 r3 ]
+"28
+[; ;../HAL/Bluetooth/Bluetooth.c: 28:                 u16 dist_left,
+[v _dist_left `us ~T0 @X0 1 r4 ]
+"29
+[; ;../HAL/Bluetooth/Bluetooth.c: 29:                 u16 dist_right,
+[v _dist_right `us ~T0 @X0 1 r5 ]
+"30
+[; ;../HAL/Bluetooth/Bluetooth.c: 30:                 const char *state)
+[v _state `*Cuc ~T0 @X0 1 r6 ]
+"31
+[; ;../HAL/Bluetooth/Bluetooth.c: 31: {
+[f ]
+"32
+[; ;../HAL/Bluetooth/Bluetooth.c: 32:     UART_SendString("DOOR:");
+[e ( _UART_SendString (1 :s 1C ]
+"33
+[; ;../HAL/Bluetooth/Bluetooth.c: 33:     UART_SendString(door_closed ? "CLOSED" : "OPEN");
+[e ( _UART_SendString (1 -> ? != -> _door_closed `i -> 0 `i : :s 2C :s 3C `*Cuc ]
+"35
+[; ;../HAL/Bluetooth/Bluetooth.c: 35:     UART_SendString(",BELT:");
+[e ( _UART_SendString (1 :s 4C ]
+"36
+[; ;../HAL/Bluetooth/Bluetooth.c: 36:     UART_SendString(belt_on ? "ON" : "OFF");
+[e ( _UART_SendString (1 -> ? != -> _belt_on `i -> 0 `i : :s 5C :s 6C `*Cuc ]
+"38
+[; ;../HAL/Bluetooth/Bluetooth.c: 38:     UART_SendString(",FRONT:");
+[e ( _UART_SendString (1 :s 7C ]
+"39
+[; ;../HAL/Bluetooth/Bluetooth.c: 39:     BT_Send3Digit(dist_front);
+[e ( _BT_Send3Digit (1 _dist_front ]
+"41
+[; ;../HAL/Bluetooth/Bluetooth.c: 41:     UART_SendString(",LEFT:");
+[e ( _UART_SendString (1 :s 8C ]
+"42
+[; ;../HAL/Bluetooth/Bluetooth.c: 42:     BT_Send3Digit(dist_left);
+[e ( _BT_Send3Digit (1 _dist_left ]
+"44
+[; ;../HAL/Bluetooth/Bluetooth.c: 44:     UART_SendString(",RIGHT:");
+[e ( _UART_SendString (1 :s 9C ]
+"45
+[; ;../HAL/Bluetooth/Bluetooth.c: 45:     BT_Send3Digit(dist_right);
+[e ( _BT_Send3Digit (1 _dist_right ]
+"47
+[; ;../HAL/Bluetooth/Bluetooth.c: 47:     UART_SendString(",STATE:");
+[e ( _UART_SendString (1 :s 10C ]
+"48
+[; ;../HAL/Bluetooth/Bluetooth.c: 48:     UART_SendString(state);
+[e ( _UART_SendString (1 _state ]
+"50
+[; ;../HAL/Bluetooth/Bluetooth.c: 50:     UART_SendString("\r\n");
+[e ( _UART_SendString (1 :s 11C ]
+"51
+[; ;../HAL/Bluetooth/Bluetooth.c: 51: }
+[e :UE 4 ]
+}
+[a 5C 79 78 0 ]
+[a 3C 79 80 69 78 0 ]
+[a 6C 79 70 70 0 ]
+[a 2C 67 76 79 83 69 68 0 ]
+[a 7C 44 70 82 79 78 84 58 0 ]
+[a 4C 44 66 69 76 84 58 0 ]
+[a 9C 44 82 73 71 72 84 58 0 ]
+[a 8C 44 76 69 70 84 58 0 ]
+[a 1C 68 79 79 82 58 0 ]
+[a 10C 44 83 84 65 84 69 58 0 ]
+[a 11C 13 10 0 ]

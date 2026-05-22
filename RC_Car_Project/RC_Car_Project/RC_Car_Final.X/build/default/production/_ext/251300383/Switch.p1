@@ -1,0 +1,50 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"31 ../HAL/Switch/../../MCAL/GPIO/GPIO_interface.h
+[; ;../HAL/Switch/../../MCAL/GPIO/GPIO_interface.h: 31: void GPIO_SetPinDirection(u8 Port, u8 Pin, u8 Direction);
+[v _GPIO_SetPinDirection `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"33
+[; ;../HAL/Switch/../../MCAL/GPIO/GPIO_interface.h: 33: u8 GPIO_GetPinValue(u8 Port, u8 Pin);
+[v _GPIO_GetPinValue `(uc ~T0 @X0 0 ef2`uc`uc ]
+"4 ../HAL/Switch/Switch.c
+[; ;../HAL/Switch/Switch.c: 4: void SWITCH_Init(u8 Port, u8 Pin)
+[v _SWITCH_Init `(v ~T0 @X0 1 ef2`uc`uc ]
+"5
+[; ;../HAL/Switch/Switch.c: 5: {
+{
+[e :U _SWITCH_Init ]
+"4
+[; ;../HAL/Switch/Switch.c: 4: void SWITCH_Init(u8 Port, u8 Pin)
+[v _Port `uc ~T0 @X0 1 r1 ]
+[v _Pin `uc ~T0 @X0 1 r2 ]
+"5
+[; ;../HAL/Switch/Switch.c: 5: {
+[f ]
+"6
+[; ;../HAL/Switch/Switch.c: 6:     GPIO_SetPinDirection(Port, Pin, 1);
+[e ( _GPIO_SetPinDirection (3 , , _Port _Pin -> -> 1 `i `uc ]
+"7
+[; ;../HAL/Switch/Switch.c: 7: }
+[e :UE 1 ]
+}
+"9
+[; ;../HAL/Switch/Switch.c: 9: u8 SWITCH_Read(u8 Port, u8 Pin)
+[v _SWITCH_Read `(uc ~T0 @X0 1 ef2`uc`uc ]
+"10
+[; ;../HAL/Switch/Switch.c: 10: {
+{
+[e :U _SWITCH_Read ]
+"9
+[; ;../HAL/Switch/Switch.c: 9: u8 SWITCH_Read(u8 Port, u8 Pin)
+[v _Port `uc ~T0 @X0 1 r1 ]
+[v _Pin `uc ~T0 @X0 1 r2 ]
+"10
+[; ;../HAL/Switch/Switch.c: 10: {
+[f ]
+"11
+[; ;../HAL/Switch/Switch.c: 11:     return GPIO_GetPinValue(Port, Pin);
+[e ) ( _GPIO_GetPinValue (2 , _Port _Pin ]
+[e $UE 2  ]
+"12
+[; ;../HAL/Switch/Switch.c: 12: }
+[e :UE 2 ]
+}

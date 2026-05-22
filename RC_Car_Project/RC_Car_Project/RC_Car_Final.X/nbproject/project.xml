@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>RC_Car_Final</name>
+            <creation-uuid>fdbfb9c2-b153-4460-84d0-45d3421d4381</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>../SERVICES</sourceRootElem>
+                <sourceRootElem>../MCAL/UART</sourceRootElem>
+                <sourceRootElem>../MCAL/TMR1</sourceRootElem>
+                <sourceRootElem>../MCAL/PWM</sourceRootElem>
+                <sourceRootElem>../MCAL/Interrupt_Manager</sourceRootElem>
+                <sourceRootElem>../MCAL/I2C</sourceRootElem>
+                <sourceRootElem>../MCAL/GPIO</sourceRootElem>
+                <sourceRootElem>../MCAL/EXT_INT</sourceRootElem>
+                <sourceRootElem>../HAL/Switch</sourceRootElem>
+                <sourceRootElem>../HAL/Motor</sourceRootElem>
+                <sourceRootElem>../HAL/LCD</sourceRootElem>
+                <sourceRootElem>../HAL/HC-SR04</sourceRootElem>
+                <sourceRootElem>../HAL/Bluetooth</sourceRootElem>
+                <sourceRootElem>../APP</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>
