@@ -219,7 +219,7 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Open [https://v0-rc-car-dashboard.vercel.app/](https://v0-rc-car-dashboard.vercel.app/)
 
 The dashboard reads all three Firebase paths above and displays them live.
 
