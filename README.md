@@ -8,11 +8,11 @@ A fully autonomous RC car with layered driver-safety interlocks, real-time cloud
 
 | Top View | Side View | Front View |
 |----------|-----------|------------|
-| ![Car top](docs/images/car2.png) | ![Car side](docs/images/car1.png) | ![Car front](docs/images/car3.png) |
+| ![Car top](images/car2.png) | ![Car side](images/car1.png) | ![Car front](images/car3.png) |
 
 | Custom PCB | Schematic |
 |------------|-----------|
-| ![PCB](docs/images/pcb.png) | ![Schematic](docs/images/schematic.png) |
+| ![PCB](images/pcb.png) | ![Schematic](images/schematic.png) |
 
 ---
 
